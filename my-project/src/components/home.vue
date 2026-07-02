@@ -1,25 +1,24 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 
-const isOpen = ref(false)
+const faqs = ref([
+  { question: 'Question 1', answer: 'Answer 1', open: false},
+  { question: 'Question 2', answer: 'Answer 2', open: false},
+]);
 
-function toggle() {
-  if(isOpen.value) {
-    isOpen.value = false;
-  } else {
-    isOpen.value = true;
-  }
-}
+function toggle(faq: { open: boolean; }) {
+  faq.open = !faq.open;
+};
 </script>
 
 
 <template>
   <h1 class="text-green-500 text-[60px] font-bold text-center">FAQ</h1>
-  
-  <section>
-    <div class="border rounded-sm ml-10 mr-10 p-2 bg-gray-700 font-bold text-white">
-      <p v-on:click="toggle">Question 1</p>
-      <p id="ans-1" class="overflow-hidden transition-all duration-200 ease-in-out" :class="{ 'max-h-40' : isOpen, 'max-h-0': !isOpen }">Answer 1</p>
+  <div class="flex flex-col justify-center items-center max-w-full">
+    <div v-for="(faq, index) in faqs" :key="index" class="min-w-60 max-w-100 border rounded-sm p-2 bg-gray-700 text-[30px] font-bold text-white cursor-pointer select-none">
+
+      <p v-on:click="toggle(faq)">{{ faq.question }}</p>
+      <p class="overflow-hidden transition-all duration-500 ease-in-out opacity-0 text-green-300" :class="{ 'max-h-40 opacity-100' : faq.open, 'max-h-0 opacity-0' : !faq.open }">{{ faq.answer }}</p>
     </div>
-  </section>
+  </div>
 </template>

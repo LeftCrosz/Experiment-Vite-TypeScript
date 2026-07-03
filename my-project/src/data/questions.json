@@ -1,0 +1,17 @@
+[
+    {
+        "question": "Question 1",
+        "answer": "Answer 1",
+        "open": false
+    },
+    {
+        "question": "Question 2",
+        "answer": "Answer 2",
+        "open": false
+    },
+    {
+        "question": "Question 3",
+        "answer": "Answer 3",
+        "open": false
+    }
+]

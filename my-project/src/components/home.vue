@@ -1,12 +1,17 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import faq_json from '../data/questions.json'
 
-const faqs = ref([
-  { question: 'Question 1', answer: 'Answer 1 long answer ok?', open: false},
-  { question: 'Question 2', answer: 'Answer 2 short answer', open: false},
-]);
 
-function toggle(faq: { open: boolean; }) {
+interface FaqItem {
+  question: string;
+  answer: string;
+  open: boolean;
+}
+
+const faqs = ref<FaqItem[]>(faq_json);
+
+function toggle(faq: FaqItem) {
   faq.open = !faq.open;
 };
 </script>

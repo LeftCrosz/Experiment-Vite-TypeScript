@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import Home from './components/home.vue'
 import List from './components/list.vue'
-import Practice from './components/practice.vue'
+import Qna from './components/qna.vue'
+import Todo from './components/todo.vue'
 </script>
 
 <template>
-  <Practice/>
+  <Todo/>
 </template>
